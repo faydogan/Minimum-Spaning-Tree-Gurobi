@@ -19,3 +19,18 @@ For more information you may check out the paper they published (https://dl.acm.
 </p>
 <br/>
 <h3 id='Gavish-and-Graves-IP-title'>Gavish and Graves Formulation</h3>
+<h6 id='FileName2'>Filename: MSTP - Gavish, Graves.cpp</h6>
+<h6 id='LP-Model2'>For an example model file check out: MSTP - Gavish, Graves.lp</h6>
+<p id='Gavish-and-Graves-Integer-Programming'> Gavish and Graves first published their paper on Integer Programming solution for TSP solution on 1978 you may check out the paper via (http://hdl.handle.net/1721.1/5363), with their different approach the formulation is still a hot topic for researchers.
+</p>
+
+<p id='work-summary'>
+  In my coding files, you may find a vector based approach to read Integer Programming (IP) Models from multiple *.txt files and contruct Gurobi models and run Gurobi IP Solver, then get the results for each run.<br/>One addition to formulation I use conflicting edges as constraints but not include all the constraints at once (because time complexity goes sky high). <br/>My approach is:<br/>
+</p>
+<ul>
+  <li>Step 1: Solve model without constraint</li>
+  <li>Step 2: Check current solution has any conflicting edges</li>
+  <li>Step 3.1: Add constraints for conflicting pairs into model</li>
+  <li>Step 3.2: Run again and Go to Step 2</li>
+  <li>Step 4: Print out the results</li>
+</ul>
